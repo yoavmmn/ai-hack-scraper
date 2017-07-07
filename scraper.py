@@ -52,7 +52,6 @@ def scraper(request, logger):
           sectors.append(sector)
     
 
-  return str({
-    "text": data,
+  return {
     "sectors": sectors
-    })
+    }
