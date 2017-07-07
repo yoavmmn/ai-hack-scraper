@@ -12,8 +12,7 @@ class Spider(scrapy.Spider):
   start_urls = []
 
   def parse(self, response):
-    for res in response.xpath("text()").extract():
-      yield { "text": res }
+    yield ''.join(response.select("//body//text()").extract()).strip()
 
     # converter = html2text.HTML2Text()
     # converter.ignore_links = True
