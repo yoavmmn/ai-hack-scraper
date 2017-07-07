@@ -17,7 +17,7 @@ app = Flask(__name__)
 def echo():
   return Response(status=200)
 
-@app.route('/scrape', methods=['POST'])
+@app.route('/scrape', methods=['GET'])
 def scrape():
   return scraper(request, logger)
 
