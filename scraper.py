@@ -37,6 +37,6 @@ def scraper(request, logger):
   process.crawl(Spider)
   data = process.start()
 
-  logger.debug("scraped motherfucker {0}".format(Spider.result))
+  logger.debug("scraped motherfucker {0}".format(data))
 
   return {"text": data}
