@@ -23,7 +23,7 @@ def scraper(request, logger):
 
   data = ''.join(data.split('\n'))
 
-  ml_sectors = "ML Machine Learning AI Computer Vision Bots NML Anomaly Detection"
+  ml_sectors = "ML Machine Learning AI Computer Vision Bots NML Anomaly Detection artificial intelligence"
 
   sectors_list = {
     "iot": "IoT",
@@ -32,7 +32,7 @@ def scraper(request, logger):
     "telecom": "Telecom Telekom Phone",
     "fintech": "Payments FinTech Wallet P2P Bitcoin",
     "transportation": "Drive Cars Autonomous Taxi Bus Train Rail",
-    "cyber": "Cyber Security Intellegence Anomaly Detection Ad Fruad Ransom Virus",
+    "cyber": "Cyber Security intelligence Anomaly Detection Ad Fruad Ransom Virus",
   }
 
   logger.debug(u"data: {0}".format(data))
