@@ -1,4 +1,5 @@
-flask==0.12.2
-scrapy==1.4.0
-html2text==3.200.3
-gunicorn==19.7.1
+flask
+scrapy
+html2text
+gevent
+gunicorn
