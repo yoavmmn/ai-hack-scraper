@@ -33,8 +33,8 @@ def scraper(request, logger):
     "USER_AGENT": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)"
     })
 
-  Spider.start_urls =url
-  Spider.allowed_domain = url
+  Spider.start_urls = [url]
+  Spider.allowed_domain = [url]
 
   logger.debug("allowed_domain {0} start_urls {1}".format(Spider.allowed_domain, Spider.start_urls))
 
