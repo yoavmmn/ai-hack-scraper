@@ -11,7 +11,7 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 config = {
-  "port": 34200
+  "port": 80
 }
 
 app = Flask(__name__)
