@@ -12,7 +12,7 @@ def scraper(request, logger):
   request_data = request.get_data()
   logger.debug("received {0}".format(request_data))
 
-  url = "".join(request_data.split("url="))
+  url = request_data.url
   url = urllib.unquote(url)
   headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
@@ -35,7 +35,7 @@ def scraper(request, logger):
     "telecom": "Telecom Telekom Phone",
     "fintech": "Payments FinTech Wallet P2P Bitcoin",
     "transportation": "Drive Cars Autonomous Taxi Bus Train Rail",
-    "cyber": "Cyber Security intelligence Anomaly Detection Ad Fruad Ransom Virus",
+    "cyber": "Cyber Security intelligence Anomaly Detection Ad Fruad Ransom Virus Defense Attack",
   }
 
   logger.debug(u"data: {0}".format(data))
