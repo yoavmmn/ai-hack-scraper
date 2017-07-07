@@ -1,6 +1,5 @@
 from flask import Response
 from scrapy.crawler import CrawlerProcess
-from scrapy.selector import HtmlXPathSelector
 from scrapy.spiders import BaseSpider
 import scrapy
 import html2text
@@ -13,8 +12,8 @@ class Spider(scrapy.Spider):
   start_urls = []
 
   def parse(self, response):
-    hxs = HtmlXPathSelector(response)
-    body = hxs.xpath("//body/text()").extract()[0]
+    hxs = scrapy.Selector(response)
+    body = hxs.xpath("//body/text()").extract()
 
     converter = html2text.HTML2Text()
     converter.ignore_links = True
