@@ -12,7 +12,7 @@ class Spider(scrapy.Spider):
   start_urls = []
 
   def parse(self, response):
-    hxs = HtmlXPathSelector(response)
+    hxs = scrapy.Selector(response)
     yield ''.join(hxs.select("//body//text()").extract()).strip()
 
     # converter = html2text.HTML2Text()
