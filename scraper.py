@@ -14,10 +14,13 @@ def scraper(request, logger):
 
   url = "".join(request_data.split("url="))
   url = urllib.unquote(url)
+  headers = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+  }
 
   logger.debug("url {0}".format(url))
 
-  r = requests.get(url)
+  r = requests.get(url, headers=headers)
   tree = lxml.html.fromstring(r.text)
   data = tree.xpath("//body")[0].text_content()
 
