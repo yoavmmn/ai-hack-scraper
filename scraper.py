@@ -36,6 +36,8 @@ def scraper(request, logger):
   Spider.allowed_domain.append(url)
   Spider.start_urls.append(url)
 
+  logger.debug("allowed_domain {0} start_urls {1}".format(Spider.allowed_domain, Spider.start_urls))
+
   process.crawl(Spider)
   data = process.start()
 
