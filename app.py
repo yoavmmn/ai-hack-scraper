@@ -1,7 +1,7 @@
 import logging
 
-from scraper import scraper
 from flask import Flask, request, Response
+from scraper import scraper
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
