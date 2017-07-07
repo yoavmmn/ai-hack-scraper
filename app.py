@@ -16,6 +16,10 @@ config = {
 
 app = Flask(__name__)
 
+@app.route('/echo', methods=['GET'])
+def echo():
+  return "Echo"
+
 @app.route('/scrape', methods=['POST'])
 def scrape():
   return scraper(request, logger)
