@@ -1,4 +1,5 @@
 import logging
+import os
 
 from flask import Flask, request, Response
 from scraper import scraper
@@ -10,10 +11,6 @@ formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(messag
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-config = {
-  "port": 8080
-}
-
 app = Flask(__name__)
 
 @app.route('/echo', methods=['GET'])
@@ -24,4 +21,7 @@ def echo():
 def scrape():
   return scraper(request, logger)
 
-app.run(host='0.0.0.0', port=config["port"], debug=True)
+if __name__ == "__main__":
+  port = os.getenv('PORT', 5000)
+
+  app.run(host='0.0.0.0', port=port, debug=False)
