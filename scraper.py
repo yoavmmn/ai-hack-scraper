@@ -14,7 +14,7 @@ class Spider(scrapy.Spider):
 
   def parse(self, response):
     hxs = HtmlXPathSelector(response)
-    body = hxs.select("//body/text()").extract()[0]
+    body = hxs.xpath("//body/text()").extract()[0]
 
     converter = html2text.HTML2Text()
     converter.ignore_links = True
