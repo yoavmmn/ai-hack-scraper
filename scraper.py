@@ -10,10 +10,11 @@ class Spider(scrapy.Spider):
   name = "AI-Hack Spider"
   allowed_domain = []
   start_urls = []
+  result = ''
 
   def parse(self, response):
     hxs = scrapy.Selector(response)
-    return ''.join(hxs.xpath("//body//text()").extract()).strip()
+    result = ''.join(hxs.xpath("//body//text()").extract()).strip()
 
 
 def scraper(request, logger):
@@ -35,8 +36,8 @@ def scraper(request, logger):
   logger.debug("allowed_domain {0} start_urls {1}".format(Spider.allowed_domain, Spider.start_urls))
 
   process.crawl(Spider)
-  return process.start()
+  process.start()
 
-  # logger.debug("scraped motherfucker {0}".format(data))
+  logger.debug("scraped motherfucker {0}".format(Spider.result))
 
-  # return Response(status=200)
+  return {"text": Spider.result}
