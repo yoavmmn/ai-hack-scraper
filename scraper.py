@@ -23,9 +23,10 @@ def scraper(request, logger):
 
   data = ''.join(data.split('\n'))
 
-  keywords = indicoio.keywords(data, version=2)
-  for keyword in keywords:
-    logger.debug("{0}".format(keyword))
+  keyowrds = []
+  analysis = indicoio.keywords(data, version=2)
+  for keyword in analysis:
+    keywords.append(keyword)
 
   return str({
     "text": data,
