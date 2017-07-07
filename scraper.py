@@ -35,8 +35,8 @@ def scraper(request, logger):
   logger.debug("allowed_domain {0} start_urls {1}".format(Spider.allowed_domain, Spider.start_urls))
 
   process.crawl(Spider)
-  data = process.start()
+  return process.start()
 
-  logger.debug("scraped motherfucker {0}".format(data))
+  # logger.debug("scraped motherfucker {0}".format(data))
 
-  return Response(status=200)
+  # return Response(status=200)
