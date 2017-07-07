@@ -3,7 +3,10 @@ import json
 import urllib
 import requests
 import lxml.html
+import indicoio
+import os
 
+indico.config.api_key = os.getenv('indicoio_key')
 
 def scraper(request, logger):
   request_data = request.get_data()
@@ -20,4 +23,6 @@ def scraper(request, logger):
 
   data = ''.join(data.split('\n'))
 
-  return str({"text": data})
+  return str({
+    "text": data,
+    "keywords": indicoio.keywords(data, version=2)})
