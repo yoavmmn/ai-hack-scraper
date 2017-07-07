@@ -35,7 +35,7 @@ def scraper(request, logger):
     "IoT": "IoT"
   }
 
-  secotrs = []
+  sectors = []
   keywords = []
   analysis = indicoio.keywords(data, version=2)
   for keyword in analysis:
