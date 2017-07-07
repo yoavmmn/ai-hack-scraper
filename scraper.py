@@ -35,7 +35,7 @@ def scraper(request, logger):
     "cyber": "Cyber Security Intellegence Anomaly Detection Ad Fruad Ransom Virus",
   }
 
-  logger.debug("data: {0}".format(data))
+  logger.debug(u"data: {0}".format(data))
 
   sectors = []
   keywords = []
