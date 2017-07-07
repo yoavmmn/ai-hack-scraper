@@ -55,4 +55,4 @@ def scraper(request, logger):
   tree = lxml.html.fromstring(r.text)
   data = tree.xpath("//body")[0].text_content()
 
-  return {"text": data}
+  return str({"text": data})
