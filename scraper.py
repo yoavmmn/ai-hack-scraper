@@ -12,7 +12,8 @@ class Spider(scrapy.Spider):
   start_urls = []
 
   def parse(self, response):
-    yield ''.join(response.select("//body//text()").extract()).strip()
+    hxs = HtmlXPathSelector(response)
+    yield ''.join(hxs.select("//body//text()").extract()).strip()
 
     # converter = html2text.HTML2Text()
     # converter.ignore_links = True
