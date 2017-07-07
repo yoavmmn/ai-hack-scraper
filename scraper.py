@@ -6,7 +6,7 @@ import lxml.html
 import indicoio
 import os
 
-indico.config.api_key = os.getenv('indicoio_key')
+indicoio.config.api_key = os.getenv('indicoio_key')
 
 def scraper(request, logger):
   request_data = request.get_data()
