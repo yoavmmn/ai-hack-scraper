@@ -1,7 +1,7 @@
 import logging
 import os
 
-from flask import Flask, request, Response
+from flask import Flask, request, Response, json
 from scraper import scraper
 
 logger = logging.getLogger()
@@ -19,7 +19,13 @@ def echo():
 
 @app.route('/scrape', methods=['GET'])
 def scrape():
-  return scraper(request, logger)
+  data = scraper(request, logger)
+  response = app.response_class(
+    response=json.dumps(data),
+    status=200,
+    mimeType="application/json"
+    )
+  return response
 
 if __name__ == "__main__":
   port = os.getenv('PORT', 5000)
