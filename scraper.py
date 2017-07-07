@@ -42,7 +42,7 @@ def scraper(request, logger):
     keywords.append(keyword)
     for sector in sectors_list:
       if keyword.lower() in sectors_list[sector].lower():
-        sectors.append(sectors_list[sector][0])
+        sectors.append(sectors_list[sector])
     
 
   return str({
