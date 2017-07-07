@@ -15,9 +15,10 @@ class Spider(scrapy.Spider):
     hxs = scrapy.Selector(response)
     body = hxs.xpath("//body/text()").extract()
 
-    converter = html2text.HTML2Text()
-    converter.ignore_links = True
-    return converter.handle(body)
+    # converter = html2text.HTML2Text()
+    # converter.ignore_links = True
+    # return converter.handle(body)
+    return body
 
 
 def scraper(request, logger):
