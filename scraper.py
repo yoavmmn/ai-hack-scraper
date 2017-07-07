@@ -26,18 +26,21 @@ def scraper(request, logger):
   ml_sectors = "ML Machine Learning AI Computer Vision Bots NML Anomaly Detection"
 
   sectors_list = {
+    "iot": "IoT",
+    "ai": ml_sectors,
+    "machine learning": ml_sectors,
+    "telecom": "Telecom Telekom Phone",
     "fintech": "Payments FinTech Wallet P2P Bitcoin",
-    "Machine Learning": ml_sectors,
-    "AI": ml_sectors,
-    "Transportation": "Drive Cars Autonomous Taxi Bus Train Rail",
-    "Cyber": "Cyber Security Intellegence Anomaly Detection Ad Fruad Ransom Virus",
-    "Telecom": "Telecom Telekom Phone",
-    "IoT": "IoT"
+    "transportation": "Drive Cars Autonomous Taxi Bus Train Rail",
+    "cyber": "Cyber Security Intellegence Anomaly Detection Ad Fruad Ransom Virus",
   }
+
+  logger.debug("data: {0}".format(data))
 
   sectors = []
   keywords = []
   analysis = indicoio.keywords(data, version=2)
+
   for keyword in analysis:
     keywords.append(keyword)
     for sector in sectors_list:
