@@ -2,4 +2,4 @@ flask
 scrapy
 html2text
 requests
-lxml.html
+lxml
