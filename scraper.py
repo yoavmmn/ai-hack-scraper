@@ -23,11 +23,30 @@ def scraper(request, logger):
 
   data = ''.join(data.split('\n'))
 
+  ml_sectors = "ML Machine Learning AI Computer Vision Bots NML Anomaly Detection"
+
+  sectors_list = {
+    "fintech": "Payments FinTech Wallet P2P Bitcoin",
+    "Machine Learning": ml_sectors,
+    "AI": ml_sectors,
+    "Transportation": "Drive Cars Autonomous Taxi Bus Train Rail",
+    "Cyber": "Cyber Security Intellegence Anomaly Detection Ad Fruad Ransom Virus",
+    "Telecom": "Telecom Telekom Phone",
+    "IoT": "IoT"
+  }
+
+  secotrs = []
   keywords = []
   analysis = indicoio.keywords(data, version=2)
   for keyword in analysis:
     keywords.append(keyword)
+    for sector in sectors_list:
+      if keyword.lower() in sectors_list[sector].lower():
+        sectors.append(sectors_list[sector][0])
+    
 
   return str({
     "text": data,
-    "keywords": keywords})
+    "keywords": keywords,
+    "secotrs": secotrs
+    })
