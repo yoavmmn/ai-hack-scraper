@@ -9,10 +9,10 @@ import os
 indicoio.config.api_key = os.getenv('indicoio_key')
 
 def scraper(request, logger):
-  request_data = request.data
+  request_data = request.args.get('url')
   logger.debug("received {0}".format(request_data))
 
-  url = request_data.url
+  url = request.args.get('url')
   url = urllib.unquote(url)
   headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
