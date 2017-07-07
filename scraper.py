@@ -29,4 +29,4 @@ def scraper(request, logger):
 
   return str({
     "text": data,
-    "keywords": keyboards})
+    "keywords": keywords})
