@@ -12,13 +12,13 @@ class Spider(scrapy.Spider):
   start_urls = []
 
   def parse(self, response):
-    hxs = scrapy.Selector(response)
-    body = hxs.xpath("//body/text()").extract()
+    for res in response.xpath("//body/text()").extract():
+      yield { "text": res }
 
     # converter = html2text.HTML2Text()
     # converter.ignore_links = True
     # return converter.handle(body)
-    return body
+    # return body
 
 
 def scraper(request, logger):
