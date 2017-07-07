@@ -1,7 +1,7 @@
 from flask import Response
 from scrapy.crawler import CrawlerProcess
 from scrapy.selector import HtmlXPathSelector
-from scrapy.spider import BaseSpider
+from scrapy.spiders import BaseSpider
 import scrapy
 import html2text
 import json

@@ -20,4 +20,4 @@ app = Flask(__name__)
 def scrape():
   return scraper(request, logger)
 
-app.run(host='0.0.0.0', port=config["port"], debug=True)
+app.run(host='0.0.0.0', port=config["port"], debug=False)
