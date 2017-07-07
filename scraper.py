@@ -25,7 +25,7 @@ def scraper(request, logger):
 
   keywords = indicoio.keywords(data, version=2)
   for keyword in keywords:
-    logger.debug("{0}".format(keyboard))
+    logger.debug("{0}".format(keyword))
 
   return str({
     "text": data,
