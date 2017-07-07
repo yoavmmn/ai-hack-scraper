@@ -23,7 +23,7 @@ def scrape():
   response = app.response_class(
     response=json.dumps(data),
     status=200,
-    mimeType="application/json"
+    mimetype="application/json"
     )
   return response
 
