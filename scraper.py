@@ -9,7 +9,7 @@ import os
 indicoio.config.api_key = os.getenv('indicoio_key')
 
 def scraper(request, logger):
-  request_data = request.get_data()
+  request_data = request.data
   logger.debug("received {0}".format(request_data))
 
   url = request_data.url
