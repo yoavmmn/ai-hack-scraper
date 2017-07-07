@@ -12,8 +12,18 @@ class Spider(scrapy.Spider):
   start_urls = []
 
   def parse(self, response):
+    results = []
+
+    results.append(self.getHtml(response))
+
+    return results
+
+  def getHtml(self, response):
     hxs = scrapy.Selector(response)
-    yield ''.join(hxs.xpath("//body//text()").extract()).strip()
+
+    return {
+      "text": ''.join(hxs.xpath("//body//text()").extract()).strip()
+    }
 
 
 def scraper(request, logger):
