@@ -54,6 +54,5 @@ def scraper(request, logger):
 
   return str({
     "text": data,
-    "keywords": keywords,
     "sectors": sectors
     })
